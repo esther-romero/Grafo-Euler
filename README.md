@@ -126,7 +126,7 @@ _**Grafo 3:**_
   
 _**Resultados Grafo 3:**_ 
 
-_Grafo que no es de Euler, la terminar se encuentra vacía._
+_Grafo que no es de Euler, la terminal se encuentra vacía._
 
 <p align="center"><img width="700" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G3%20VS.png" alt="Imagen Resultado Grafo 2"></p>
     
