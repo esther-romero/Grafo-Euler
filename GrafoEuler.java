@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class GrafoEuler {
     private ArrayList<Arista>[] adj;
-    private boolean [] visADJ;
     private int recoEu[];
     private int nodo;
     private int numEdges;
@@ -13,8 +12,6 @@ public class GrafoEuler {
         for (int i =0;i<nodo;i++) {
             adj[i] = new ArrayList<>();
         }
-        visADJ = new boolean[nodo];
-        
     }
     
     public void addEdge(int o, int d){
@@ -37,7 +34,6 @@ public class GrafoEuler {
     private int verificarImpar(){
         int res = 0;
         for(int i=0;i<adj.length;i++){
-            int a  = adj[i].size();
             if(adj[i].size()%2 != 0)
                 res ++;
         }
@@ -46,9 +42,7 @@ public class GrafoEuler {
 
     public void recorrido(int v, int destino, Arista arista) {
         if(numEdges+1==destino) {
-            int ini = recoEu[0];
-            int fin = recoEu[numEdges];
-            if(ini == fin){
+            if(recoEu[0] == recoEu[numEdges]){
                 System.out.print("Es ciclo de Euler: ");
             }else{
                 System.out.print("Es camino de Euler: ");
@@ -63,8 +57,8 @@ public class GrafoEuler {
         for (Arista a : adj[v]) {
             if(!a.getVisitado()) {
                 a.setVisitado(true);
-                Arista aux = obtenerArista(a.getDestino(),v);
-                aux.setVisitado(true);
+                Arista vuelta = obtenerArista(a.getDestino(),v);
+                vuelta.setVisitado(true);
                 recoEu[destino] = a.getDestino();
                 recorrido(a.getDestino(),destino+1,a);
             }

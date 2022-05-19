@@ -11,7 +11,6 @@ public class Main {
         euler.addEdge(2, 3);
 
         euler.colorarios();
-        
     }
 }
 
@@ -29,8 +28,8 @@ public class Main {
         ---------------------
 
         //Grafo 2
-        nodos=6
-        
+        nodos = 6
+
         euler.addEdge(0, 2);
         euler.addEdge(0, 3);
         euler.addEdge(3, 2);
