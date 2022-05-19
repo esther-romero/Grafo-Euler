@@ -4,7 +4,7 @@ public class GrafoEuler {
     private ArrayList<Arista>[] adj;
     private boolean [] visADJ;
     private int recoEu[];
-    private static int nodo = 4;
+    private static int nodo = 5;
     private int numEdges;
 
     public static void main(String [] args) {
@@ -18,11 +18,12 @@ public class GrafoEuler {
             adj[i] = new ArrayList<>();
         }
 
-        addEdge(0, 1);
         addEdge(0, 2);
-        addEdge(1, 3);
+        addEdge(0, 3);
+        addEdge(0, 4);
         addEdge(1, 2);
-        addEdge(3, 2);
+        addEdge(1, 3);
+        addEdge(1, 4);
 
         visADJ = new boolean[nodo];
         recoEu  = new int [numEdges+1];       
