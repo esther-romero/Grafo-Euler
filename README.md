@@ -11,19 +11,21 @@ _**Carrera:** Ingeniera Informática_
 
 
 _Elaboración de la estructura, métodos y atributos de un Grafo de Euler_
+
 ## 1) Conceptos básicos 📖
 
 _Teoría de conceptos basicos y consideraciones que se tomaron en cuenta al momento de la implementación._
 
 ### 📌Grafo de Euler 
 
-_**Grafos dirigidos/no dirigido:** Se considera un grafo simple de Euler, cuando no se tiene bucles y cumple con alguno de los dos colorarios._
+_**Grafos dirigidos/no dirigido:** Se considera un grafo simple de Euler, cuando no se tiene bucles y cumple con alguno de los dos corolarios._
 
-_**Colorario 1:** Todos los grados de los vertices deben ser par._
+_**Corolario 1:** Si G es un grafo euleriano, entonces todos sus vértices tienen grado par._
 
-_**Colorario 2:** El grado máximo de vertices impares es 2, teniendo asi, un vertice de comienzo y otro para culminar._
+_**Corolario 2:** Si G es un grafo que posee un camino euleriano, entonces o bien todos los vértices tienen grado par o bien
+exactamente dos de los vértices tienen grado impar._
 
-<p align="center"><img width="400" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Ciclo_euleriano.PNG/220px-Ciclo_euleriano.PNG" alt="Imagen Grafo Completo"></p>
+<p align="center"><img width="500" src="https://pbs.twimg.com/media/EiLvBH8X0AAzOZe.jpg" alt="Imagen Grafo Completo"></p>
 
 
 ## 2) Explicación de Clases 📖
@@ -42,7 +44,6 @@ _A su vez, se utilizo listas de adyacencia para la representacion de los grafos.
 ```
 public class GrafoEuler {
     private ArrayList<Arista>[] adj;
-    private boolean [] visADJ;
     private int recoEu[];
     private int nodo;
     private int numEdges;
@@ -72,9 +73,9 @@ _Agrega aristas a un grafo_
 @return void - sin valor de retorno
 ```
 
-### colorarios() 📋
+### corolarios() 📋
 
-_Verifica si el grafo cumple con alguno de los colorarios._
+_Verifica si un grafo cumple con alguno de los dos corolarios._
 
 ```
 @param  No necesita parametros
@@ -83,9 +84,9 @@ _Verifica si el grafo cumple con alguno de los colorarios._
 
 ### recorrido(int v, int destino, Arista arista) 📋
 
-_Recorre todo el grafo, buscando un ciclo o camino de Euler, se utilizo el recorrido dfs recursivo para su verificación._
+_Recorre todo el grafo bajo el algoritmo DFS recursivo, buscando un ciclo o camino de Euler._
 
-_Imprime todos los resultados que encuentra, tomando todos los vertices._
+_Imprime todos los resultados que encuentra, tomando cada vertice como punto de partida._
 
 ```
 @param int -> origen del vertice (v)
@@ -95,40 +96,39 @@ _Imprime todos los resultados que encuentra, tomando todos los vertices._
 ```
 
 ## 4) Ejecutando Pruebas - DEMO ⚙️
+  
+- **`Grafo 1:`**
 
-_**Grafo 1:**_  
-  
-<p align="center"><img width="250" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Grafo%201.png" alt="Imagen Grafo 1"></p>
-  
-_**Resultados Grafo 1:**_ 
-
-<p align="center"><img width="400" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G1%20VS.png" alt="Imagen Resultado Grafo 1 VS"></p>
-  
-<p align="center"><img width="250" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultados%20G1.png" alt="Imagen Resultado Grafo 1"></p>
-  
-<p align="center"><img width="250" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultados%20G1%20(P2).png" alt="Imagen Resultado Grafo 1 P2"></p>  
-
-_**Grafo 2:**_  
-  
-<p align="center"><img width="400" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Grafo%202.png" alt="Imagen Grafo 2"></p>
-  
-_**Resultados Grafo 2:**_ 
-
-<p align="center"><img width="350" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G2%20VS.png" alt="Imagen Resultado Grafo 2"></p>
-  
-_Resultado del último grafo_  
-  
-<p align="center"><img width="350" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G2.png" alt="Imagen Resultado Grafo 2"></p> 
+    | Estructura       |
+    | ----------------- |
+    | <p align="center"><img width="400" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Grafo%201.png" alt="Imagen Grafo 1"></p> |
+    | Resultado        |
+    | <p align="center"><img width="500" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G1%20VS.png" alt="Imagen Resultado Grafo 1 VS"></p> |
     
-_**Grafo 3:**_  
-  
-<p align="center"><img width="300" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Grafo%203.png" alt="Imagen Grafo 3"></p>
-  
-_**Resultados Grafo 3:**_ 
+    | Camino Euler1     | Camino Euler2                       |
+    | -------- | --------------------------------- |
+    | <p align="center"><img width="250" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultados%20G1.png" alt="Imagen Resultado Grafo 1"></p>   | <p align="center"><img width="250" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultados%20G1%20(P2).png" alt="Imagen Resultado Grafo 1 P2"></p>                               | 
 
-_Grafo que no es de Euler, la terminal se encuentra vacía._
+- **`Grafo 2:`**
 
-<p align="center"><img width="700" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G3%20VS.png" alt="Imagen Resultado Grafo 2"></p>
+    | Estructura       |
+    | ----------------- |
+    | <p align="center"><img width="500" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Grafo%202.png" alt="Imagen Grafo 2"></p> |
+    | Resultado        |
+    | <p align="center"><img width="400" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G2%20VS.png" alt="Imagen Resultado Grafo 2"></p> |
+    | Resultado último ciclo de Euler        |
+    | <p align="center"><img width="350" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G2.png" alt="Imagen Resultado Grafo 2"></p>  |
+ 
+
+- **`Grafo 3:`**
+
+    | Estructura puentes de Königsberg  |
+    | ----------------- |
+    | <p align="center"><img width="300" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Grafo%203.png" alt="Imagen Grafo 3"></p> |
+    | Grafo no Euleriano       |
+    | No se encuentra ningun camino/ciclo. Terminal vacio. |
+    | <p align="center"><img width="700" src="https://github.com/esther-romero/Grafo-Euler/blob/main/img/Resultado%20G3%20VS.png" alt="Imagen Resultado Grafo 2"></p> |
+
     
 
 ## 5) Construido con 🛠️
