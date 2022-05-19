@@ -4,33 +4,19 @@ public class GrafoEuler {
     private ArrayList<Arista>[] adj;
     private boolean [] visADJ;
     private int recoEu[];
-    private static int nodo = 6;
+    private int nodo;
     private int numEdges;
 
-    public static void main(String [] args) {
-        GrafoEuler ham = new GrafoEuler();
-        ham.run();
-    }
-    
-    private void run() {
+    public GrafoEuler(int nodo){
+        this.nodo = nodo;
         adj = new ArrayList[nodo];
         for (int i =0;i<nodo;i++) {
             adj[i] = new ArrayList<>();
         }
-
-        addEdge(0, 2);
-        addEdge(0, 3);
-        addEdge(3, 2);
-        addEdge(2, 1);
-        addEdge(2, 4);
-        addEdge(1, 5);
-        addEdge(4, 5);
-
         visADJ = new boolean[nodo];
-        recoEu  = new int [numEdges+1];       
-        colorarios();        
+        
     }
-
+    
     public void addEdge(int o, int d){
         adj[o].add(new Arista(d));
         adj[d].add(new Arista(o));
@@ -38,6 +24,7 @@ public class GrafoEuler {
     }
 
     public void colorarios(){
+        recoEu  = new int [numEdges+1];
         if(verificarImpar() < 3){
             for(int i=0;i<adj.length;i++){
                 recoEu[0] = i;
@@ -47,7 +34,7 @@ public class GrafoEuler {
         }
     }
 
-    public int verificarImpar(){
+    private int verificarImpar(){
         int res = 0;
         for(int i=0;i<adj.length;i++){
             int a  = adj[i].size();
