@@ -20,7 +20,7 @@ public class GrafoEuler {
         numEdges++;
     }
 
-    public void colorarios(){
+    public void corolarios(){
         recoEu  = new int [numEdges+1];
         if(verificarImpar() < 3){
             for(int i=0;i<adj.length;i++){

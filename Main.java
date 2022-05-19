@@ -10,7 +10,7 @@ public class Main {
         euler.addEdge(2, 3);
         euler.addEdge(2, 3);
 
-        euler.colorarios();
+        euler.corolarios();
     }
 }
 
